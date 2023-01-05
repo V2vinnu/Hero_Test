@@ -14,7 +14,7 @@ pipeline {
             steps{
                 script{
                     withCredentials([string(credentialsId: 'docker_auth', variable: 'docker-login')]) {
-                        sh 'docker login -u vinnuvinod -p ${docker-login}'
+                        sh 'docker login -u vinnuvinod -p ${docker_auth}'
                         }
                     //withCredentials([usernameColonPassword(credentialsId: 'Docker--login', variable: 'docker-login')]) {
                      //   sh 'docker push vinnuvinod752/$JOB_NAME:V1.$BUILD_ID'
