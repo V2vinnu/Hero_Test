@@ -13,8 +13,8 @@ pipeline {
         stage('push image to docker hub'){
             steps{
                 script{
-                    withCredentials([string(credentialsId: 'docker_auth', variable: 'docker-auth')]) {
-                        sh 'docker login -u vinnuvinod752 -p ${docker-auth}'
+                    withCredentials([string(credentialsId: 'docker_auth', variable: 'docker-cred')]) {
+                                          sh 'docker login -u vinnuvinod752 -p ${docker-cred}'
                     }
                 }
             }
