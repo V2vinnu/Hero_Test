@@ -14,7 +14,7 @@ pipeline {
             steps{
                 script{
                     withCredentials([string(credentialsId: 'docker_auth', variable: 'docker-auth')]) {
-                        sh 'docker login -u vinnuvinod752 -p${docker-auth}'
+                        sh 'docker login -u vinnuvinod752 -p ${docker-auth}'
                     }
                 }
             }
