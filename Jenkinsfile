@@ -14,7 +14,7 @@ pipeline {
             steps{
                 script{
                     withCredentials([usernameColonPassword(credentialsId: 'Docker--login', variable: 'docker-login')]) {
-                        sh 'docker image push vinnuvinod752/$JOB_NAME:V1.$BUILD_ID'
+                        sh 'docker push vinnuvinod752/$JOB_NAME:V1.$BUILD_ID'
     
                     }
                 }
