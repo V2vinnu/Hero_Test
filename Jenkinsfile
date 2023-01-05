@@ -13,10 +13,13 @@ pipeline {
         stage('push image to docker hub'){
             steps{
                 script{
-                    withCredentials([usernameColonPassword(credentialsId: 'Docker--login', variable: 'docker-login')]) {
+                    withCredentials([string(credentialsId: 'docker_auth', variable: 'docker-login')]) {
+                        sh 'docker login -u vinnuvinod -p ${docker-login}'
+                        }
+                    //withCredentials([usernameColonPassword(credentialsId: 'Docker--login', variable: 'docker-login')]) {
                      //   sh 'docker push vinnuvinod752/$JOB_NAME:V1.$BUILD_ID'
     
-                    }
+                    //}
                 }
             }
         }
